@@ -1,6 +1,8 @@
 // // Read the sample json file using d3 jason from the
 
 // const_url = "https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json";
+
+
 function plotchart(rowitem){
 
 
@@ -72,6 +74,7 @@ rowitem=selecteddata[0]
 
  plotchart(rowitem)
  buildMetadata(rowitem)
+ 
 })
 
   }
@@ -81,6 +84,7 @@ rowitem=selecteddata[0]
 
     plotchart(rowitem);
     buildMetadata(rowitem);
+   
   }
 function buildMetadata(rowitem){
   d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json")
@@ -89,6 +93,9 @@ function buildMetadata(rowitem){
     selecteddata=data.metadata;
     let sampleArray1=selecteddata.filter(X=>X.id==rowitem)
     rowdata=sampleArray1[0]
+    wfreq=rowdata.wfreq
+    buildGauge(wfreq)
+    console.log(wfreq)
 
     let PANEL = d3.select("#sample-metadata");
 
